@@ -42,25 +42,41 @@ class Directory extends Component {
             <div className='container'>
                 {
                     this.state.contacts.length > 0 ?
-                    <React.Fragment>
-                        <DeleteContact action={this.deleteContacts} text={'Eliminar contactos'}></DeleteContact>
-                        {
-                            this.state.contacts.map((contact, idx)=>{
-                                return <React.Fragment key={idx}>
-                                    <br/>
-                                    <ContactCard contact={contact} action={this.addContact}></ContactCard>
-                                    <br/>
-                                    
-                                </React.Fragment>
-                            })
-                        }
-                    </React.Fragment>
+                    <div className='row'>
+                        <div className="container">
+                            <div className="row">
+                                <div className="col">
+                                <DeleteContact action={this.deleteContacts} text={'Eliminar contactos'}></DeleteContact>
+                                </div>
+                            </div>
+                            <div className="row">
+                                    {
+                                    this.state.contacts.map((contact, idx)=>{
+                                        return <div className='col-6' key={idx}>
+                                            <ContactCard contact={contact} action={this.addContact}></ContactCard>
+                                            
+                                        </div>
+                                    })
+                                }
+                            </div>
+                        </div>
+                    </div>
                     
                      :
-                    <React.Fragment>
-                        <AddContact action={this.addContacts} text={'Agregar contactos'}></AddContact>
-                        <h1>No hay contactos disponibles</h1>
-                    </React.Fragment>
+                    <div className='row'>
+                        <div className="container">
+                            <div className="row">
+                                <div className="col">
+                                    <AddContact action={this.addContacts} text={'Agregar contactos'}></AddContact>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col">
+                                    <h1>No hay contactos disponibles</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 }
                 <AddContactForm action={this.addContact}></AddContactForm>
             </div>

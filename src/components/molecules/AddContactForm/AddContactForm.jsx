@@ -77,6 +77,7 @@ class AddContactForm extends Component
                     <AddContact 
                         action={this.handleSubmit}
                         text='Agregar'/>
+                    &nbsp;
                     <DeleteContact 
                         action={this.handleClearForm}
                         text='Reiniciar Formulario'/>
