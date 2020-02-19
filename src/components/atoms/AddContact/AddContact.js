@@ -6,6 +6,7 @@ const AddContact = (props) => {
     return <React.Fragment>        
             <button className={'btn btn-primary'} onClick={props.action}>
                 <FontAwesomeIcon icon={faPlus}/>
+                &nbsp;
                 {
                     props.text ? props.text : 'Agregar contacto'
                 }

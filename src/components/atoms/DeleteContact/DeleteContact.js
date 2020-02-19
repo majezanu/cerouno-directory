@@ -6,6 +6,7 @@ const DeleteContact = (props) => {
     return <React.Fragment>        
             <button className={'btn btn-danger'} onClick={props.action}>
                 <FontAwesomeIcon icon={faMinus}/>
+                &nbsp;
                 {
                     props.text ? props.text : 'Eliminar contacto'
                 }
