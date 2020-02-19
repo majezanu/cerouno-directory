@@ -10,15 +10,13 @@ const INICIAL_CONTACT = {
 };
 class AddContactForm extends Component
 {
-    constructor(props){
-        super(props);
-        this.state = { 
-            contact: INICIAL_CONTACT
-        }
+    state = { 
+        contact: INICIAL_CONTACT
     }
 
-    handleInput = (e, key) => {
+    handleInput = e => {
         let value = e.target.value;
+        let key = e.target.name;
         this.handleContact(key, value);
     }
 
@@ -57,7 +55,7 @@ class AddContactForm extends Component
                         type="text"
                         value={this.state.contact.name}
                         placeholder="Ingresa tu nombre"
-                        handleChange={e => this.handleInput(e,'name')}
+                        handleChange={this.handleInput}
                         title="Nombre"
                     />
                     <Input 
@@ -65,7 +63,7 @@ class AddContactForm extends Component
                         type="text"
                         value={this.state.contact.email}
                         placeholder="Ingresa tu correo"
-                        handleChange={e => this.handleInput(e,'email')}
+                        handleChange={this.handleInput}
                         title="Correo"
                     />
                     <Input 
@@ -73,7 +71,7 @@ class AddContactForm extends Component
                         type="number"
                         value={this.state.contact.phone}
                         placeholder="Ingresa tu telefono"
-                        handleChange={e => this.handleInput(e,'phone')}
+                        handleChange={this.handleInput}
                         title="Teléfono"
                     />
                     <AddContact 

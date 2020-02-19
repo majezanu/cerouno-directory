@@ -4,15 +4,11 @@ import ContactCard from '../../atoms/ContactCard/ContactCard';
 import AddContact from '../../atoms/AddContact/AddContact';
 import DeleteContact from '../../atoms/DeleteContact/DeleteContact';
 import AddContactForm from '../../molecules/AddContactForm/AddContactForm';
+
+const url = 'https://jsonplaceholder.typicode.com/users';
 class Directory extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {contacts: []};
-        this.addContact = this.addContact.bind(this);
-        this.addContacts = this.addContacts.bind(this);
-        this.deleteContacts = this.deleteContacts.bind(this);
-        this.setContacts = this.setContacts.bind(this);
-    }
+    state = {contacts: []};
+
     addContact = (contact) => {
         this.setState(
             prevState => ({
@@ -25,7 +21,13 @@ class Directory extends Component {
     }
 
     addContacts = () => {
-        this.setContacts(contactsData);
+        fetch(url)
+            .then(response => response.json())
+            .then(
+                data => {
+                    this.setContacts(data);
+                }
+            );
     }
     deleteContacts = () => {
        this.setContacts([]);

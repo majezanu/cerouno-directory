@@ -1,12 +1,12 @@
 import React from 'react'
 import './ContactCard.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPhone, faMailBulk } from '@fortawesome/free-solid-svg-icons'
+import { faPhone, faMailBulk, faGlobe } from '@fortawesome/free-solid-svg-icons'
 
 const ContactCard = (props) => {
 
     return <div className='card contact'>
-        <img className="card-img-top" src={props.contact.imgUrl} alt="Not found"></img>
+        {/* <img className="card-img-top" src={props.contact.imgUrl} alt="Not found"></img> */}
         <div className="card-body">
                 <h1>{props.contact.name}</h1>
                 <div className="row">
@@ -23,6 +23,14 @@ const ContactCard = (props) => {
                     </div>
                     <div className="col">
                         <span>{props.contact.email}</span>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col">
+                        <FontAwesomeIcon icon={faGlobe} />
+                    </div>
+                    <div className="col">
+                        <span>{props.contact.website}</span>
                     </div>
                 </div>
         </div>
