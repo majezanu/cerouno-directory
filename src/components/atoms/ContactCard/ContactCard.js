@@ -2,7 +2,6 @@ import React from 'react'
 import './ContactCard.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhone, faMailBulk } from '@fortawesome/free-solid-svg-icons'
-import AddContact from '../AddContact/AddContact'
 
 const ContactCard = (props) => {
 
@@ -24,12 +23,6 @@ const ContactCard = (props) => {
                     </div>
                     <div className="col">
                         <span>{props.contact.email}</span>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col">
-                        <AddContact 
-                            action={() => props.action(props.contact)}></AddContact>
                     </div>
                 </div>
         </div>

@@ -3,6 +3,7 @@ import contactsData from './contactsData';
 import ContactCard from '../../atoms/ContactCard/ContactCard';
 import AddContact from '../../atoms/AddContact/AddContact';
 import DeleteContact from '../../atoms/DeleteContact/DeleteContact';
+import AddContactForm from '../../molecules/AddContactForm/AddContactForm';
 class Directory extends Component {
     constructor(props) {
         super(props);
@@ -13,7 +14,14 @@ class Directory extends Component {
         this.setContacts = this.setContacts.bind(this);
     }
     addContact = (contact) => {
-        console.log('Este botón agregará a: ' + contact.name);
+        this.setState(
+            prevState => ({
+                contacts: [
+                    ...prevState.contacts,
+                    contact
+                ]
+            })
+        )
     }
 
     addContacts = () => {
@@ -51,8 +59,8 @@ class Directory extends Component {
                         <AddContact action={this.addContacts} text={'Agregar contactos'}></AddContact>
                         <h1>No hay contactos disponibles</h1>
                     </React.Fragment>
-                    
                 }
+                <AddContactForm action={this.addContact}></AddContactForm>
             </div>
         )
     }
